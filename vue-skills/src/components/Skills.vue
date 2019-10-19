@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form @submit.prevent="addSkill">
+    <!-- <form @submit.prevent="addSkill">
       <input
         type="text"
         placeholder="Enter a skill you have.."
@@ -8,8 +8,12 @@
         v-validate="'min:5'"
         name="skill"
       />
-      <p class="alert" v-if="errors.has('skill')">{{ errors.first('skill') }}</p>
-    </form>
+    </form> -->
+
+    <validation-provider rules="required" v-slot="{ errors }">
+      <input v-model="value" name="myinput" type="text" />
+      <span>{{ errors[0] }}</span>
+    </validation-provider>  
 
     <div class="holder">
       <ul>
@@ -42,7 +46,7 @@ export default {
           this.skills.push({ skill: this.skill });
           this.skill = "";
         } else {
-          console.log("Not valid");
+          this.skill = "Hi";
         }
       });
     }

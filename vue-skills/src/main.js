@@ -1,10 +1,22 @@
 import Vue from 'vue'
 import App from './App.vue'
-// import VeeValidate from 'vee-validate';
+import { ValidationProvider, extend } from 'vee-validate';
+import { required } from 'vee-validate/dist/rules';
 
-// Vue.use(VeeValidate);
 Vue.config.productionTip = false
+
+extend('required', {
+  ...required,
+  message: 'The {_field_} field is required'
+});
 
 new Vue({
   render: h => h(App),
-}).$mount('#app')
+  el: '#app',
+  components: {
+    ValidationProvider
+  },
+  data: () => ({
+    value: ''
+  })
+}).$mount('#app');
