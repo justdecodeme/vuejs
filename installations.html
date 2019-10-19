@@ -7,7 +7,9 @@
   <title>Vue Installations</title>
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app">
+    {{ message }}
+  </div>
 
   
   <!-- _DOWNLOAD -->
@@ -17,6 +19,7 @@
 
   <!-- -Warnings stripped, 33.30KB min+gzip -->
   <!-- <script src="vue.min.js"></script> -->
+
 
   <!-- _CDN -->
 
@@ -30,5 +33,28 @@
   <!-- <script type="module">
     import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.esm.browser.js'
   </script> -->
+
+  
+  <!-- _Using the CLI -->
+
+  <!-- -create a new project, run: -->
+  <!-- $vue create hello-world -->
+  <!-- $cd hello-world -->
+  <!-- $npm run serve -->
+
+
+  <!-- _Using the GUI -->
+
+  <!-- -create and manage projects using a graphical interface with the command: -->
+  <!-- $vue ui -->
+
+  <script>
+    var app = Vue({
+      el: "#app",
+      data: {
+        message: "Hello Vue!"
+      }
+    })
+  </script>
 </body> 
 </html>
